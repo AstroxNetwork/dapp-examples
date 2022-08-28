@@ -1,5 +1,5 @@
+import { useBalance, useWallet } from "../services/hooks"
 import React from "react"
-import { useBalance, useWallet } from "@connect2ic/react"
 
 const Profile = () => {
   const [wallet] = useWallet()

@@ -37,6 +37,8 @@ function App() {
       <p className="examples-title">Examples</p>
       <div className="examples">
         <Counter />
+        <Profile />
+        <Transfer />
       </div>
     </div>
   )
