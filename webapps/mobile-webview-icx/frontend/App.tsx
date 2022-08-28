@@ -10,10 +10,10 @@ import { Counter } from "./components/Counter"
 import { Profile } from "./components/Profile"
 import { Transfer } from "./components/Transfer"
 import { AstroXWebViewHandler } from "@astrox/sdk-webview"
-import { useICX } from "./services/hooks"
+import { useConnect } from "./services/hooks"
 
 function App() {
-  const { connected, ready, icx } = useICX()
+  const { connected, ready, icx } = useConnect()
 
   useEffect(() => {
     if (!ready) {

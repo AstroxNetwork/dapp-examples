@@ -1,5 +1,5 @@
 import { ActorSubclass } from "@dfinity/agent"
-import { useICX } from "../services/hooks"
+import { useConnect } from "../services/hooks"
 import React, { useEffect, useState } from "react"
 import { canisterId, idlFactory } from "../../.dfx/local/canisters/counter"
 import { _SERVICE as CounterService } from "../../.dfx/local/canisters/counter/counter.did"
@@ -8,7 +8,7 @@ const Counter = () => {
   /*
    * This how you use canisters throughout your app.
    */
-  const { connected, icx } = useICX()
+  const { connected, icx } = useConnect()
   const [count, setCount] = useState<bigint>()
 
   const [counter, setCounter] = useState<

@@ -2,7 +2,7 @@ import { Wallet } from "@astrox/sdk-core"
 import { AstroXWebViewHandler } from "@astrox/sdk-webview"
 import { useEffect, useState } from "react"
 
-export const useICX = (): UseICXResult => {
+export const useConnect = (): UseConnectResult => {
   const [icx, setIcx] = useState<AstroXWebViewHandler>(
     ((window as any).icx as AstroXWebViewHandler) || new AstroXWebViewHandler(),
   )
@@ -19,7 +19,7 @@ export const useICX = (): UseICXResult => {
 }
 
 export const useWallet = () => {
-  const { connected, icx } = useICX()
+  const { connected, icx } = useConnect()
   const [wallet, setWallet] = useState<Wallet | undefined>(undefined)
   useEffect(() => {
     if (connected) {
@@ -40,7 +40,7 @@ type BalanceResponse = {
 }[]
 
 export const useBalance = () => {
-  const { connected, icx } = useICX()
+  const { connected, icx } = useConnect()
   const [balance, setBalance] = useState<BalanceResponse | undefined>(undefined)
   useEffect(() => {
     if (connected) {
@@ -69,7 +69,7 @@ export enum TransferError {
 export const useTransfer = ({ amount, to, from = undefined }: Props) => {
   // TODO: check if supported or not
   const [wallet] = useWallet()
-  const { icx } = useICX()
+  const { icx } = useConnect()
   const [loading, setLoading] = useState<boolean>(false)
   const [payload, setPayload] = useState<{ height: number }>()
   const [error, setError] = useState<{ kind: TransferError }>()
@@ -99,7 +99,7 @@ export const useTransfer = ({ amount, to, from = undefined }: Props) => {
   return [transfer, { loading, error }] as const
 }
 
-export interface UseICXResult {
+export interface UseConnectResult {
   ready: boolean
   connected: boolean
   icx: AstroXWebViewHandler
