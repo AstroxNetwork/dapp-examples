@@ -1,8 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrox/sdk-core': ^0.0.10
-  '@astrox/sdk-webview': ^0.0.10
+  '@astrox/sdk-core': ^0.1.4
+  '@astrox/sdk-webview': ^0.1.4
   '@dfinity/agent': ^0.13.1
   '@dfinity/candid': ^0.13.1
   '@dfinity/identity': ^0.13.1
@@ -17,11 +17,12 @@ specifiers:
   react: ^18.1.0
   react-dom: ^18.1.0
   typescript: ^4.4.3
+  vconsole: ^3.14.6
   vite: ^2.9.9
 
 dependencies:
-  '@astrox/sdk-core': 0.0.10_vxrnv5tlr43u5xabofdb6zoswy
-  '@astrox/sdk-webview': 0.0.10_vxrnv5tlr43u5xabofdb6zoswy
+  '@astrox/sdk-core': 0.1.4_vxrnv5tlr43u5xabofdb6zoswy
+  '@astrox/sdk-webview': 0.1.4_vxrnv5tlr43u5xabofdb6zoswy
   '@dfinity/agent': 0.13.2_7fnwzxmbagw4buivctap2f2uiu
   '@dfinity/candid': 0.13.2_vxrnv5tlr43u5xabofdb6zoswy
   '@dfinity/identity': 0.13.2_tbir35qxvinia3vkihpi3z2fxm
@@ -30,6 +31,7 @@ dependencies:
   antd-mobile-icons: 0.3.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  vconsole: 3.14.6
 
 devDependencies:
   '@types/node': 17.0.45
@@ -50,8 +52,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.15
     dev: true
 
-  /@astrox/sdk-core/0.0.10_vxrnv5tlr43u5xabofdb6zoswy:
-    resolution: {integrity: sha512-VPMWCYFq65O9CSb8xBAdWOToQ2fkFP55aBfpboetSccc+KDR0+eq/0f7AiUHdr3mkO8EruQkpLhpEpPUfc+4DA==}
+  /@astrox/sdk-core/0.1.4_vxrnv5tlr43u5xabofdb6zoswy:
+    resolution: {integrity: sha512-Qvmy1R8NaxNHU7wLp0nZKe2dabtjexcUIpRDj7r4TxpdMdW4bcCBsvOx4/GP9RYONL4DCgLJuhFAf46FsxWJ5g==}
     dependencies:
       '@dfinity/agent': 0.13.2_7fnwzxmbagw4buivctap2f2uiu
       '@dfinity/candid': 0.13.2_vxrnv5tlr43u5xabofdb6zoswy
@@ -75,10 +77,10 @@ packages:
       - typescript
     dev: false
 
-  /@astrox/sdk-webview/0.0.10_vxrnv5tlr43u5xabofdb6zoswy:
-    resolution: {integrity: sha512-+pgJ89bLaIrXOrFHwO6lRGT1cbzWlrNVlxeuP0SAUNcpmca2bUvXefhHbUE5FBVIRVkakM5T/ggur1ydA3207w==}
+  /@astrox/sdk-webview/0.1.4_vxrnv5tlr43u5xabofdb6zoswy:
+    resolution: {integrity: sha512-BtnqmQ8rkOoRy//JOXfPpmZfW4X3CoEJhD2JtUtCNPkVZZRX3uBJs3r+BtgOw2wEYASTMl2dDfXRcJSF1RvKqA==}
     dependencies:
-      '@astrox/sdk-core': 0.0.10_vxrnv5tlr43u5xabofdb6zoswy
+      '@astrox/sdk-core': 0.1.4_vxrnv5tlr43u5xabofdb6zoswy
       '@dfinity/agent': 0.13.2_7fnwzxmbagw4buivctap2f2uiu
       '@dfinity/candid': 0.13.2_vxrnv5tlr43u5xabofdb6zoswy
       '@dfinity/identity': 0.13.2_tbir35qxvinia3vkihpi3z2fxm
@@ -847,6 +849,16 @@ packages:
       safe-buffer: 5.1.2
     dev: true
 
+  /copy-text-to-clipboard/3.0.1:
+    resolution: {integrity: sha512-rvVsHrpFcL4F2P8ihsoLdFHmd404+CMg71S756oRSeQgqk51U3kicGdnvfkrxva0xXH92SjGS62B0XIJsbh+9Q==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /core-js/3.25.0:
+    resolution: {integrity: sha512-CVU1xvJEfJGhyCpBrzzzU1kjCfgsGUxhEvwUV2e/cOedYWHdmluamx+knDnmhqALddMG16fZvIqvs9aijsHHaA==}
+    requiresBuild: true
+    dev: false
+
   /create-require/1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
     dev: false
@@ -1241,6 +1253,10 @@ packages:
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
+  /mutation-observer/1.0.3:
+    resolution: {integrity: sha512-M/O/4rF2h776hV7qGMZUH3utZLO/jK7p8rnNgGkjKUw8zCGjRQPxB8z6+5l8+VjRUQ3dNYu4vjqXYLr+U8ZVNA==}
+    dev: false
+
   /nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -1542,6 +1558,15 @@ packages:
 
   /v8-compile-cache-lib/3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
+    dev: false
+
+  /vconsole/3.14.6:
+    resolution: {integrity: sha512-8Ffk2SfNe6EzKqZ0aNnNjpAVBVT7zgJo81lYEJdKySYLVYBeSawdSkWi9fSjDg3WsQhgS1vNPmRqJDTuwdVbnQ==}
+    dependencies:
+      '@babel/runtime': 7.18.9
+      copy-text-to-clipboard: 3.0.1
+      core-js: 3.25.0
+      mutation-observer: 1.0.3
     dev: false
 
   /vite/2.9.15:

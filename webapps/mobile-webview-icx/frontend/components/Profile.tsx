@@ -1,9 +1,9 @@
 import { useBalance, useWallet } from "../services/hooks"
 import React from "react"
 
-const Profile = () => {
-  const [wallet] = useWallet()
-  const [assets] = useBalance()
+const Profile = ({ connected }: { connected: boolean }) => {
+  const [wallet] = useWallet({ connected })
+  const [assets] = useBalance({ connected })
 
   return (
     <div className="example">

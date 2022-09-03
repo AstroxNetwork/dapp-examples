@@ -7,16 +7,17 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@astrox/sdk-core": "^0.0.10",
-    "@astrox/sdk-webview": "^0.0.10",
+    "@astrox/sdk-core": "^0.1.4",
+    "@astrox/sdk-webview": "^0.1.4",
     "@dfinity/agent": "^0.13.1",
+    "@dfinity/candid": "^0.13.1",
     "@dfinity/identity": "^0.13.1",
     "@dfinity/principal": "^0.13.1",
-    "@dfinity/candid": "^0.13.1",
     "antd-mobile": "^5.22.0",
     "antd-mobile-icons": "^0.3.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "vconsole": "^3.14.6"
   },
   "devDependencies": {
     "@types/node": "^17.0.36",

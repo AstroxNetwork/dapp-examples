@@ -1,15 +1,21 @@
 import { useTransfer, useWallet } from "../services/hooks"
 import React from "react"
 
-const Transfer = () => {
-  const [wallet] = useWallet()
+const Transfer = ({ connected }: { connected: boolean }) => {
+  const [wallet] = useWallet({ connected })
   const [transfer] = useTransfer({
-    to: "9dd04c8ba6039018a7b6d569cf6192efc596a0435fdc7f6fdb2d017518360409",
-    amount: Number(0.01),
+    connected,
+    to: "848753b6fac50019dffc34ead1af095863405b3cce463352c1ecf3109ada4b23",
+    amount: BigInt(10 * 10000),
   })
 
   const onPurchase = async () => {
-    const { height } = await transfer()
+    try {
+      // const { height } = await transfer()
+      await transfer()
+    } catch (error) {
+      alert(error)
+    }
   }
 
   return (

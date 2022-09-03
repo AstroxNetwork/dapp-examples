@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react"
 import { canisterId, idlFactory } from "../../.dfx/local/canisters/counter"
 import { _SERVICE as CounterService } from "../../.dfx/local/canisters/counter/counter.did"
 
-const Counter = () => {
+const Counter = ({ connected }: { connected: boolean }) => {
   /*
    * This how you use canisters throughout your app.
    */
-  const { connected, icx } = useConnect()
+  const { icx } = useConnect()
   const [count, setCount] = useState<bigint>()
 
   const [counter, setCounter] = useState<
@@ -16,6 +16,8 @@ const Counter = () => {
   >(undefined)
 
   const initCounter = async () => {
+    console.log("initCounter")
+    console.log(icx)
     setCounter(await icx.createActor<CounterService>(canisterId, idlFactory))
   }
 
@@ -25,19 +27,24 @@ const Counter = () => {
   }
 
   const increment = async () => {
-    await counter.increment()
-    await refreshCounter()
+    console.log({ connected })
+    if (counter) {
+      await counter.increment()
+      await refreshCounter()
+    }
   }
 
   useEffect(() => {
     if (connected) {
-      console.log(counter)
+      console.log("counter")
       if (!counter) {
+        console.log("counter is not found")
         ;(async () => await initCounter())()
       } else {
         refreshCounter()
       }
     }
+    console.log("useEffect")
   }, [connected, counter])
 
   return (
