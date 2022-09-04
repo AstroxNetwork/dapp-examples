@@ -16,7 +16,9 @@ export const useConnect = (): UseConnectResult => {
   useEffect(() => {
     if (((window as any).icx as AstroXWebViewHandler) === undefined || !ready) {
       ;(async () => {
-        const thisIcx = (window as any).icx as AstroXWebViewHandler
+        const thisIcx =
+          ((window as any).icx as AstroXWebViewHandler) ||
+          new AstroXWebViewHandler()
         await thisIcx.init()
         setIcx(thisIcx)
         setReady(thisIcx.isReady())
