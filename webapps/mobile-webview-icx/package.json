@@ -7,8 +7,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@astrox/sdk-core": "^0.1.4",
-    "@astrox/sdk-webview": "^0.1.4",
+    "@astrox/sdk-core": "^0.1.5",
+    "@astrox/sdk-webview": "^0.1.5",
     "@dfinity/agent": "^0.13.1",
     "@dfinity/candid": "^0.13.1",
     "@dfinity/identity": "^0.13.1",

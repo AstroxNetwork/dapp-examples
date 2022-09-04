@@ -115,6 +115,7 @@ export const useTransfer = ({
     //     setError(error)
     //   },
     // )
+
     let ret = { height: 0 }
     if (result.kind === TransactionMessageKind.success) {
       const { blockHeight } = (result as TransactionResponseSuccess)
