@@ -51,7 +51,7 @@ import { _SERVICE } from "./candid/ego_icp"
 function App() {
   const { isConnected, activeProvider, principal } = useConnect()
   const client = useClient()
-  const {connect} = useConnect()
+  const { connect } = useConnect()
   const [walletProvider] = useWallet()
   const [total, setTotal] = useState("0.0")
   const [balance, setBalance] = useState<boolean | string>(false)
@@ -61,7 +61,7 @@ function App() {
   console.log(client)
   useEffect(() => {
     if (isConnected) {
-     
+      console.log('aaaaa', walletProvider)
     }
   }, [isConnected])
 
@@ -293,9 +293,10 @@ function App() {
             // extra={<Button type="primary">Edit</Button>}
             >
               <Descriptions.Item label="Principal ID">{principal}</Descriptions.Item>
-              <Descriptions.Item label="Wallet">{
-                walletProvider?.address().principal
-              }</Descriptions.Item>
+              <Descriptions.Item label="Wallet">
+                <p>Principal: {walletProvider.wallets[0].principal}</p>
+                <p>AccountId: {walletProvider.wallets[0].accountId}</p>
+              </Descriptions.Item>
             </Descriptions>
           ) : null
         }
@@ -312,12 +313,12 @@ const client = createClient({
       providerUrl: "http://localhost:8080/",
       // whitelist: ['qsgjb-riaaa-aaaaa-aaaga-cai', 'qhbym-qaaaa-aaaaa-aaafq-cai',],
       // delegationTargets: ['qsgjb-riaaa-aaaaa-aaaga-cai', 'qhbym-qaaaa-aaaaa-aaafq-cai',],
-    }):
-    new AstroX({
-      // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-      providerUrl: "http://localhost:8080/",
-    }),
-    
+    }) :
+      new AstroX({
+        // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+        providerUrl: "http://localhost:8080/",
+      }),
+
   ],
   globalProviderConfig: {
     // dev: import.meta.env.DEV,
