@@ -24,6 +24,7 @@
     "baseUrl": "."
   },
   "include": [
-    "./frontend", "./frontend/types/icx.d.ts"
-  ]
+    "src", "src/types/icx.d.ts"
+  ],
+  "exclude": ["node_modules"]
 }
