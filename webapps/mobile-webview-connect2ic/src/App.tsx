@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { ChangeEvent, useEffect, useState } from "react"
 import logo from "./assets/dfinity.svg"
 /*
  * Import canister definitions like this:
@@ -18,7 +18,7 @@ import {
 import { balanceFromString, balanceToString } from "./utils/converters"
 import { randomBytes } from "./utils/random"
 import { fromHexString } from "@dfinity/candid"
-import { idlFactory } from './candid/ego_icp.idl'
+import { idlFactory } from './candid/example.idl'
 import { Principal } from "@dfinity/principal"
 import { CreateActorResult, createClient } from "@connect2ic/core"
 import {
@@ -33,7 +33,7 @@ import {
 import "@connect2ic/core/style.css"
 import 'antd/dist/antd.css'
 import { NFTOptions, tokenOptions } from "./utils"
-import { _SERVICE } from "./candid/ego_icp"
+import { _SERVICE } from "./candid/example"
 // const ConnectButton = ({
 //   onClick,
 //   text,
@@ -83,33 +83,44 @@ function App() {
     console.log('result', result)
   }
 
-  const transferToken = async (values) => {
-    const reuslt = await (activeProvider as ICX).requestTransfer({
+  const transferToken = async (values: {
+    amount: number
+    to: string
+    symbol?: string
+    standard?: string
+  }) => {
+    const reuslt = await walletProvider.requestTransfer({
       to: values.to,
       standard: values.standard,
       symbol: values.symbol,
-      amount: values.amount,
+      amount: Number(values.amount),
     })
     console.log('transfer    end', reuslt)
   }
 
-  const transferNFT = async (values) => {
+  const transferNFT = async (values: {
+    to: string
+    tokenIdentifier: string;
+    tokenIndex: number;
+    canisterId: string;
+    standard: 'ICP' | 'DIP20' | 'EXT' | 'DRC20' | string;
+  }) => {
     const reuslt = await walletProvider.requestTransferNFT({
       to: values.to,
       standard: values.standard,
       canisterId: values.canisterId,
       tokenIdentifier: values.tokenIdentifier,
-      tokenIndex: values.tokenIndex,
+      tokenIndex: Number(values.tokenIndex),
     })
     console.log('transfer    end', reuslt)
   }
   console.log(activeProvider)
-  const onChangeAmount = (value) => {
 
-    console.log(value)
+
+  const onChangeAmount = (event) => {
 
     const total = balanceToString(
-      balanceFromString(value, 8) + balanceFromString('0.0001', 8),
+      balanceFromString(event.target.value, 8) + balanceFromString('0.0001', 8),
       8,
     ).formatTotalTo4
     setTotal(total)
