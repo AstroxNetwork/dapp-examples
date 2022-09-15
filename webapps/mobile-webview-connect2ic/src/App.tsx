@@ -310,14 +310,12 @@ const client = createClient({
     (window as any).astrox_webview ? new ICX({
       // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
       providerUrl: "http://localhost:8080/",
-
-      // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
+      // whitelist: ['qsgjb-riaaa-aaaaa-aaaga-cai', 'qhbym-qaaaa-aaaaa-aaafq-cai',],
+      // delegationTargets: ['qsgjb-riaaa-aaaaa-aaaga-cai', 'qhbym-qaaaa-aaaaa-aaafq-cai',],
     }):
     new AstroX({
       // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
       providerUrl: "http://localhost:8080/",
-
-      // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
     }),
     
   ],
@@ -327,6 +325,7 @@ const client = createClient({
     ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
     ledgerHost: "http://localhost:8000",
     // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
+    whitelist: ['qsgjb-riaaa-aaaaa-aaaga-cai', 'qhbym-qaaaa-aaaaa-aaafq-cai',],
   },
 })
 
