@@ -13,6 +13,7 @@ import {
   useBalance,
   useWallet,
   ConnectDialog,
+  useClient,
 } from "@connect2ic/react"
 import { balanceFromString, balanceToString } from "./utils/converters"
 import { randomBytes } from "./utils/random"
@@ -49,18 +50,17 @@ import { _SERVICE } from "./candid/ego_icp"
 
 function App() {
   const { isConnected, activeProvider, principal } = useConnect()
+  const client = useClient()
   const [walletProvider] = useWallet()
   const [total, setTotal] = useState("0.0")
   const [balance, setBalance] = useState<boolean | string>(false)
   const [loading, setLoading] = useState(false)
   const [newActor, setNewActor] = useState<CreateActorResult<_SERVICE>>()
 
+  console.log(client)
   useEffect(() => {
     if (isConnected) {
-      ; (async () => {
-        const b = await walletProvider.queryBalance()
-        console.log(b)
-      })()
+     
     }
   }, [isConnected])
 
@@ -78,6 +78,8 @@ function App() {
   }
   const connect = async () => {
     console.log('connect')
+    const result = await activeProvider.connect();
+    console.log('result', result)
   }
 
   const transferToken = async (values) => {
@@ -100,7 +102,7 @@ function App() {
     })
     console.log('transfer    end', reuslt)
   }
-
+  console.log(activeProvider)
   const onChangeAmount = (value) => {
 
     console.log(value)
@@ -129,7 +131,8 @@ function App() {
               null
             ) : (
               <>
-                <Form onFinish={connect}>
+                <Button type="primary" onClick={connect}>Connect</Button>
+                {/* <Form onFinish={connect}>
                   <Form.Item
                     labelCol={{ span: 6 }}
                     name="canisterIds"
@@ -138,7 +141,7 @@ function App() {
                     <Input.TextArea placeholder='CanisterIds' rows={3} />
                   </Form.Item>
                   <Button type="primary" htmlType="submit">Connect</Button>
-                </Form>
+                </Form> */}
               </>
             )
           }
@@ -304,17 +307,14 @@ const client = createClient({
   // providers: walletProviders,
   providers: [
     new AstroX({
-      // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-      providerUrl: "http://localhost:8080/",
-
+      // providerUrl: "http://localhost:8080/",
       // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
     }),
   ],
   globalProviderConfig: {
-    // dev: import.meta.env.DEV,
-    dev: true,
-    ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
-    ledgerHost: "http://localhost:8000",
+    // dev: true,
+    // ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
+    // ledgerHost: "http://localhost:8000",
     // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
   },
 })
