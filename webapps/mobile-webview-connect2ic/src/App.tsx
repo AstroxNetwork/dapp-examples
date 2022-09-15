@@ -51,6 +51,7 @@ import { _SERVICE } from "./candid/ego_icp"
 function App() {
   const { isConnected, activeProvider, principal } = useConnect()
   const client = useClient()
+  const {connect} = useConnect()
   const [walletProvider] = useWallet()
   const [total, setTotal] = useState("0.0")
   const [balance, setBalance] = useState<boolean | string>(false)
@@ -76,9 +77,9 @@ function App() {
     console.log('createActor', result)
     setNewActor(result)
   }
-  const connect = async () => {
+  const handleConnect = async () => {
     console.log('connect')
-    const result = await activeProvider.connect();
+    const result = connect((window as any).astrox_webview ? 'icx' : 'astrox');
     console.log('result', result)
   }
 
@@ -131,7 +132,7 @@ function App() {
               null
             ) : (
               <>
-                <Button type="primary" onClick={connect}>Connect</Button>
+                <Button type="primary" onClick={handleConnect}>Connect</Button>
                 {/* <Form onFinish={connect}>
                   <Form.Item
                     labelCol={{ span: 6 }}
@@ -306,15 +307,25 @@ function App() {
 const client = createClient({
   // providers: walletProviders,
   providers: [
+    (window as any).astrox_webview ? new ICX({
+      // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+      providerUrl: "http://localhost:8080/",
+
+      // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
+    }):
     new AstroX({
-      // providerUrl: "http://localhost:8080/",
+      // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+      providerUrl: "http://localhost:8080/",
+
       // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
     }),
+    
   ],
   globalProviderConfig: {
-    // dev: true,
-    // ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
-    // ledgerHost: "http://localhost:8000",
+    // dev: import.meta.env.DEV,
+    dev: true,
+    ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
+    ledgerHost: "http://localhost:8000",
     // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
   },
 })
