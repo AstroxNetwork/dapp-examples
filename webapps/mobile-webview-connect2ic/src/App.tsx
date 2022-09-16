@@ -63,37 +63,39 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [newActor, setNewActor] = useState<CreateActorResult<_SERVICE>>()
 
-  console.log(client)
   useEffect(() => {
     if (isConnected) {
-      console.log('aaaaa', walletProvider)
+      console.log('walletProvider', walletProvider)
+      console.log('activeProvider', activeProvider)
     }
   }, [isConnected])
 
   const queryBalance = async () => {
+    setLoading(true)
     const result = await walletProvider.queryBalance()
     console.log('queryBalance', JSON.stringify(result))
-    // console.log('queryBalance', result.find(o => o.symbol ==='ICP'))
     setBalance((result as any).value[0].amount)
+    setLoading(false)
   }
 
   const createActor = async (values: { canisterId: string }) => {
+    setLoading(true)
     const result = await activeProvider.createActor<_SERVICE>(values.canisterId, idlFactory)
     console.log('createActor', result)
     setNewActor(result)
-  }
-  const handleConnect = async () => {
-    console.log('connect')
-    const result = connect((window as any).astrox_webview ? 'icx' : 'astrox');
-    console.log('result', result)
+    setLoading(false)
   }
 
+  // const handleConnect = async () => {
+  //   console.log('connect')
+  //   const result = connect((window as any).astrox_webview ? 'icx' : 'astrox');
+  //   console.log('result', result)
+  // }
+
   const transferToken = async (values: {
-    amount: number
-    to: string
-    symbol?: string
-    standard?: string
+    [key: string]: string
   }) => {
+    setLoading(true)
     const reuslt = await walletProvider.requestTransfer({
       to: values.to,
       standard: values.standard,
@@ -101,15 +103,13 @@ function App() {
       amount: Number(values.amount),
     })
     console.log('transfer    end', reuslt)
+    setLoading(false)
   }
 
   const transferNFT = async (values: {
-    to: string
-    tokenIdentifier: string;
-    tokenIndex: number;
-    canisterId: string;
-    standard: 'ICP' | 'DIP20' | 'EXT' | 'DRC20' | string;
+    [key: string]: string
   }) => {
+    setLoading(true)
     const reuslt = await walletProvider.requestTransferNFT({
       to: values.to,
       standard: values.standard,
@@ -117,20 +117,8 @@ function App() {
       tokenIdentifier: values.tokenIdentifier,
       tokenIndex: Number(values.tokenIndex),
     })
-    console.log('transfer    end', reuslt)
+    setLoading(false)
   }
-  console.log(activeProvider)
-
-
-  const onChangeAmount = (event) => {
-
-    const total = balanceToString(
-      balanceFromString(event.target.value, 8) + balanceFromString('0.0001', 8),
-      8,
-    ).formatTotalTo4
-    setTotal(total)
-  }
-
 
   return (
     <div className="container">
@@ -142,32 +130,22 @@ function App() {
         Connect2ic Example
       </h1>
       <Space size="middle" direction="vertical">
-        <div style={{ textAlign: 'center' }}>
+        {/* <div style={{ textAlign: 'center' }}>
           {
             isConnected ? (
               null
             ) : (
               <>
                 <Button type="primary" onClick={handleConnect}>Connect</Button>
-                {/* <Form onFinish={connect}>
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="canisterIds"
-                    label="CanisterIds"
-                  >
-                    <Input.TextArea placeholder='CanisterIds' rows={3} />
-                  </Form.Item>
-                  <Button type="primary" htmlType="submit">Connect</Button>
-                </Form> */}
               </>
             )
           }
-        </div>
+        </div> */}
         {
           isConnected ? (
             <Row gutter={{ sm: 10, md: 24 }}>
               <Col xs={24} md={12}>
-                <Button type="primary" onClick={queryBalance}>queryBalance</Button>
+                <Button type="primary" loading={loading} onClick={queryBalance}>queryBalance</Button>
                 {
                   balance !== undefined ?
                     <p style={{ marginTop: 10 }}>Balance: {balance}</p> : null
@@ -178,143 +156,151 @@ function App() {
                   <Form.Item name="canisterId">
                     <Input placeholder='canisterId' />
                   </Form.Item>
-                  <Button type="primary" htmlType="submit">createActor</Button>
+                  <Button type="primary" loading={loading} htmlType="submit">createActor</Button>
                 </Form>
               </Col>
             </Row>
           ) : null
         }
-        <h3>Transaction example</h3>
-        <Row gutter={{ sm: 10, md: 24 }}>
-          {
-            isConnected ? (
-              <Col xs={24} md={12}>
-                <Form
-                  initialValues={{
-                    standard: 'ICP',
-                    symbol: 'ICP'
-                  }}
-                  onFinish={transferToken}>
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="amount"
-                    label="Amount"
-
-                  >
-                    <Input placeholder='Amount' onChange={onChangeAmount} />
-                  </Form.Item>
-
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="to"
-                    label="To"
-                  >
-                    <Input placeholder='To' />
-                  </Form.Item>
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="standard"
-                    label="Standard"
-                  >
-                    <Select
-                      style={{ maxWidth: 120 }}
-                      options={tokenOptions}
-                      placeholder="Standard"
-                    >
-                    </Select>
-                  </Form.Item>
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="symbol"
-                    label="Symbol"
-                  >
-                    <Select
-                      style={{ maxWidth: 120 }}
-                      options={tokenOptions}
-                      placeholder="Symbol"
-                    >
-                    </Select>
-                  </Form.Item>
-                  <div style={{ textAlign: 'right' }}>
-                    <Button type="primary" htmlType="submit" >Transfer Token</Button>
-                  </div>
-                </Form>
-              </Col>
-            ) : null
-          }
-          {
-            isConnected ? (
-              <Col xs={24} md={12}>
-                <Form
-                  onFinish={transferNFT}
-                  initialValues={{
-                    standard: 'EXT',
-                  }}
-                >
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="tokenIdentifier"
-                    label="TokenIdentifier"
-                  >
-                    <Input placeholder='TokenIdentifier' />
-                  </Form.Item>
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="tokenIndex"
-                    label="TokenIndex"
-                  >
-                    <Input placeholder='TokenIndex' />
-                  </Form.Item>
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="canisterId"
-                    label="CanisterId"
-                  >
-                    <Input placeholder='CanisterId' />
-                  </Form.Item>
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="to"
-                    label="To"
-                  >
-                    <Input placeholder='To' />
-                  </Form.Item>
-                  <Form.Item
-                    labelCol={{ span: 6 }}
-                    name="standard"
-                    label="Standard"
-                  >
-                    <Select
-                      style={{ maxWidth: 120 }}
-                      options={NFTOptions}
-                      placeholder="Standard"
-                    >
-                    </Select>
-                  </Form.Item>
-                  <div style={{ textAlign: 'right' }}>
-                    <Button type="primary" htmlType="submit" >Transfer NFT</Button>
-                  </div>
-                </Form>
-              </Col>
-            ) : null
-          }
-
-        </Row>
         {
           isConnected ? (
-            <Descriptions
-              title="Authenticate Info"
-              size="default"
-              column={1}
-            // extra={<Button type="primary">Edit</Button>}
-            >
-              <Descriptions.Item label="Principal ID">{principal}</Descriptions.Item>
-              <Descriptions.Item label="Wallet">
+            <>
+              <h2>Transaction example</h2>
+              <Row gutter={{ sm: 10, md: 24 }}>
+                <Col xs={24} md={12}>
+                  <Form
+                    initialValues={{
+                      standard: 'ICP',
+                      symbol: 'ICP'
+                    }}
+                    onFinish={transferToken}>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="amount"
+                      label="Amount"
 
-                <p>Principal: {walletProvider.wallets[0].principal}</p>
-                <p>AccountId: {walletProvider.wallets[0].accountId}</p>
-              </Descriptions.Item>
-            </Descriptions>
+                    >
+                      <Input placeholder='Amount' />
+                    </Form.Item>
+
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="to"
+                      label="To"
+                    >
+                      <Input placeholder='To' />
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="standard"
+                      label="Standard"
+                    >
+                      <Select
+                        style={{ maxWidth: 120 }}
+                        options={tokenOptions}
+                        placeholder="Standard"
+                      >
+                      </Select>
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="symbol"
+                      label="Symbol"
+                    >
+                      <Select
+                        style={{ maxWidth: 120 }}
+                        options={tokenOptions}
+                        placeholder="Symbol"
+                      >
+                      </Select>
+                    </Form.Item>
+                    <div style={{ textAlign: 'right' }}>
+                      <Button type="primary" loading={loading} htmlType="submit" >Transfer Token</Button>
+                    </div>
+                  </Form>
+                </Col>
+                <Col xs={24} md={12}>
+                  <Form
+                    onFinish={transferNFT}
+                    initialValues={{
+                      standard: 'EXT',
+                    }}
+                  >
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="tokenIdentifier"
+                      label="TokenIdentifier"
+                    >
+                      <Input placeholder='TokenIdentifier' />
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="tokenIndex"
+                      label="TokenIndex"
+                    >
+                      <Input placeholder='TokenIndex' />
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="canisterId"
+                      label="CanisterId"
+                    >
+                      <Input placeholder='CanisterId' />
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="to"
+                      label="To"
+                    >
+                      <Input placeholder='To' />
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="standard"
+                      label="Standard"
+                    >
+                      <Select
+                        style={{ maxWidth: 120 }}
+                        options={NFTOptions}
+                        placeholder="Standard"
+                      >
+                      </Select>
+                    </Form.Item>
+                    <div style={{ textAlign: 'right' }}>
+                      <Button type="primary" loading={loading} htmlType="submit" >Transfer NFT</Button>
+                    </div>
+                  </Form>
+                </Col>
+              </Row>
+            </>
+          ) : null
+        }
+        {
+          isConnected ? (
+            <>
+              <Descriptions
+                title="Authenticate Identity Info"
+                size="default"
+                column={1}
+              >
+                <Descriptions.Item label="Principal ID">{principal}</Descriptions.Item>
+
+              </Descriptions>
+              <Descriptions
+                title="Authenticate Wallet Info"
+                size="default"
+                column={1}
+              >
+                <Descriptions.Item label="Principal">
+                  {walletProvider.wallets[0].principal}
+                </Descriptions.Item>
+                <Descriptions.Item label="AccountId">
+                  {walletProvider.wallets[0].accountId}
+                </Descriptions.Item>
+              </Descriptions>
+            </>
+
+
           ) : null
         }
       </Space>
@@ -324,18 +310,19 @@ function App() {
 
 
 const client = createClient({
-  // providers: walletProviders,
-  providers: [
-    (window as any).astrox_webview ? new ICX({
-      // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-      // providerUrl: "http://localhost:8080/",
-    }) :
-      new AstroX({
-        // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-        // providerUrl: "http://localhost:8080/",
-      }),
+  providers: defaultProviders,
+  // providers: [
+  //   // defaultProviders,
+  //   (window as any).astrox_webview ? new ICX({
+  //     // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+  //     // providerUrl: "http://localhost:8080/",
+  //   }) :
+  //     new AstroX({
+  //       // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+  //       // providerUrl: "http://localhost:8080/",
+  //     }),
 
-  ],
+  // ],
   globalProviderConfig: {
     // dev: import.meta.env.DEV,
     dev: true,
