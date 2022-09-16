@@ -416,10 +416,10 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@connect2ic/core@0.2.0-beta.10":
-  version "0.2.0-beta.10"
-  resolved "http://localhost:4873/@connect2ic%2fcore/-/core-0.2.0-beta.10.tgz#4891b50ee98a61d49cb36d478026091495b0fb32"
-  integrity sha512-F7Okjbmfxd2AdSQwTQ1KQesZ1kgFQrHBJfPWX+U20WvumuA8WbH1x7/NmjT0XzrJPPnrQnU7W7FAeQ+PMacxSg==
+"@connect2ic/core@0.2.0-beta.11":
+  version "0.2.0-beta.11"
+  resolved "http://localhost:4873/@connect2ic%2fcore/-/core-0.2.0-beta.11.tgz#86a928ac8e1725aa1407527f36cae959c945bf48"
+  integrity sha512-5dNr861sEU8tabfPBOddEGw5rLUd16KPmbt3677uxLX27GfmEP1ejNVIF20XXDixfCeg0t38oVeUhtKR7nWzLQ==
   dependencies:
     "@astrox/connection" "^0.0.52"
     "@astrox/sdk-core" "^0.1.23"
@@ -441,10 +441,10 @@
     secp256k1 "^4.0.3"
     xstate "^4.33.2"
 
-"@connect2ic/react@0.2.0-beta.10":
-  version "0.2.0-beta.10"
-  resolved "http://localhost:4873/@connect2ic%2freact/-/react-0.2.0-beta.10.tgz#9d5418fe5a6378975a42d44c2378ef84275618d0"
-  integrity sha512-nesrYesxvSn4lB3Jpgct4sZA642mpNOVWipcwejOhxCEJZjxHxKDwUWfdm1qJsyofRyzwx7GUL4tpjAHhA9CWg==
+"@connect2ic/react@0.2.0-beta.11":
+  version "0.2.0-beta.11"
+  resolved "http://localhost:4873/@connect2ic%2freact/-/react-0.2.0-beta.11.tgz#3b826dcccaf16f0d3d29c81ac3e9fe11d180473a"
+  integrity sha512-ApSOzjkYJ3qxysiOLD1/cXriALc00A+ZR34ByADkF/+VzUwoP/w8R1d56lHiM6AILxLfYcWntwlljvXJH42oOg==
   dependencies:
     "@xstate/react" "^3.0.1"
     neverthrow "^5.0.0"

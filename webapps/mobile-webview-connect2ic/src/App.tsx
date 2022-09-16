@@ -23,8 +23,13 @@ import { Principal } from "@dfinity/principal"
 import { CreateActorResult, createClient } from "@connect2ic/core"
 import {
   AstroX,
-  defaultProviders,
   ICX,
+  defaultProviders,
+  PlugWallet,
+  InfinityWallet,
+  NFID,
+  StoicWallet,
+  InternetIdentity,
   walletProviders,
 } from "@connect2ic/core/providers"
 /*
@@ -305,9 +310,9 @@ function App() {
             >
               <Descriptions.Item label="Principal ID">{principal}</Descriptions.Item>
               <Descriptions.Item label="Wallet">
-                
-                <p>Principal: {(walletProvider as any).wallets[0].principal}</p>
-                <p>AccountId: {(walletProvider as any).wallets[0].accountId}</p>
+
+                <p>Principal: {walletProvider.wallets[0].principal}</p>
+                <p>AccountId: {walletProvider.wallets[0].accountId}</p>
               </Descriptions.Item>
             </Descriptions>
           ) : null
@@ -317,17 +322,16 @@ function App() {
   )
 }
 
+
 const client = createClient({
   // providers: walletProviders,
   providers: [
     (window as any).astrox_webview ? new ICX({
-      providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+      // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
       // providerUrl: "http://localhost:8080/",
-      // whitelist: ['qsgjb-riaaa-aaaaa-aaaga-cai', 'qhbym-qaaaa-aaaaa-aaafq-cai',],
-      // delegationTargets: ['qsgjb-riaaa-aaaaa-aaaga-cai', 'qhbym-qaaaa-aaaaa-aaafq-cai',],
     }) :
       new AstroX({
-        providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+        // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
         // providerUrl: "http://localhost:8080/",
       }),
 
