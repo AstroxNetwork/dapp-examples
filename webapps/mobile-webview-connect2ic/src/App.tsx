@@ -308,7 +308,7 @@ function App() {
   )
 }
 
-
+console.log('agent', navigator.userAgent)
 const client = createClient({
   providers: defaultProviders,
   // providers: [
