@@ -284,6 +284,7 @@ function App() {
                 column={1}
               >
                 <Descriptions.Item label="Principal ID">{principal}</Descriptions.Item>
+                {/* <Descriptions.Item label="Identity">{activeProvider}</Descriptions.Item> */}
 
               </Descriptions>
               <Descriptions

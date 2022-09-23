@@ -60,10 +60,10 @@
     cross-fetch "^3.1.4"
     js-sha256 "^0.9.0"
 
-"@astrox/sdk-core@^0.1.23", "@astrox/sdk-core@^0.1.24":
-  version "0.1.24"
-  resolved "http://localhost:4873/@astrox%2fsdk-core/-/sdk-core-0.1.24.tgz#182be91550ceae7ec9512d2f358d01cf4211a33b"
-  integrity sha512-uZ9+h9++CPkgFImrzJnNYerhhsLhqym7HNa5VJOxgDHKebkwcZY2s6gUCplZ3/xZvJ/angDn/6iVyQYktJe8bg==
+"@astrox/sdk-core@^0.1.26":
+  version "0.1.26"
+  resolved "https://registry.npmjs.org/@astrox/sdk-core/-/sdk-core-0.1.26.tgz#826b21ac9e1077061b152bf5f77eb65c59880d90"
+  integrity sha512-rILxsaTAgB71X0cQeggXMpRBSvxpYrjMM8XgQOsvJpcXhc+bVHnNhyf+3y1FLuDUzAMOLK+tMzNLg0YLeC2mRQ==
   dependencies:
     "@dfinity/agent" "^0.13.1"
     "@dfinity/candid" "^0.13.1"
@@ -74,12 +74,12 @@
     jest "^29.0.2"
     simple-cbor "^0.4.1"
 
-"@astrox/sdk-web@^0.1.23":
-  version "0.1.24"
-  resolved "http://localhost:4873/@astrox%2fsdk-web/-/sdk-web-0.1.24.tgz#45cecb6a7f427b6add47f6a8eb9fda0bec3e898b"
-  integrity sha512-KZMrl7cZJO0vintxDef1njYK4ChpYB/u+Fd0X6XmS3zlc+6pS+7N1u/20ps+FBlibSF2d1rU6dK4+6AW89QoDg==
+"@astrox/sdk-web@^0.1.26":
+  version "0.1.26"
+  resolved "https://registry.npmjs.org/@astrox/sdk-web/-/sdk-web-0.1.26.tgz#66ea802d2bb1c1a16eda80794b02881bd0fb58cd"
+  integrity sha512-W60UCOL0aRrS20RZSlwP6L014HvgRSj1AEXrfKdxRSP6kKB0Eka/oR9xwOYBEB7fTvCGkxT4FqhbHyGP5lZ5Kw==
   dependencies:
-    "@astrox/sdk-core" "^0.1.24"
+    "@astrox/sdk-core" "^0.1.26"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/authentication" "0.13.1"
     "@dfinity/candid" "^0.13.1"
@@ -93,12 +93,12 @@
     jest "^29.0.2"
     js-sha256 "^0.9.0"
 
-"@astrox/sdk-webview@^0.1.23":
-  version "0.1.24"
-  resolved "http://localhost:4873/@astrox%2fsdk-webview/-/sdk-webview-0.1.24.tgz#17ba6091230ed84a4472e1773fc7691c5f1a83f6"
-  integrity sha512-yV8RJIn/PzTHnaEc3B4Eo8F9FVXBBJoXCKfP6u/aLZyvelNNsLi4hBjAD831VX763K8mrCWoWtX2CDhWWp+w/Q==
+"@astrox/sdk-webview@^0.1.26":
+  version "0.1.26"
+  resolved "https://registry.npmjs.org/@astrox/sdk-webview/-/sdk-webview-0.1.26.tgz#824c32d6c333608ba8a170bf93eb8d79630afc2e"
+  integrity sha512-F5QnIIuZ8gjpV46i0m3Tr7dOo8LrxST7bb1/azBavKGK8TnaQmbAUjqWfV6IhztPCwmCOzF/w/+TCAXDt5T4lQ==
   dependencies:
-    "@astrox/sdk-core" "^0.1.24"
+    "@astrox/sdk-core" "^0.1.26"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/candid" "^0.13.1"
     "@dfinity/identity" "^0.13.1"
@@ -416,15 +416,15 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@connect2ic/core@0.2.0-beta.13":
-  version "0.2.0-beta.13"
-  resolved "https://registry.npmjs.org/@connect2ic/core/-/core-0.2.0-beta.13.tgz#e3bcf9a00dd196b5d5d7e8cb213884def866ebe5"
-  integrity sha512-fApHMqGtosCFPCxYGun+PNnwcYnLApRNm3aR2tkEK8kY9Jde1QCnVLtXuFxlNosRCUHkc3UpvOtrpEOy1/LOIg==
+"@connect2ic/core@0.2.0-beta.14":
+  version "0.2.0-beta.14"
+  resolved "https://registry.npmjs.org/@connect2ic/core/-/core-0.2.0-beta.14.tgz#4b9689f11867a029cb0be0d8652050aeae5545b3"
+  integrity sha512-wBNH29RUlB/2EoqujJksCDZgwgirx6b2/C1/3K3oN/SwuPsBADF1kJVCSGTE4yU/MLzteXF7p8du4sIXWewqqA==
   dependencies:
     "@astrox/connection" "^0.0.52"
-    "@astrox/sdk-core" "^0.1.23"
-    "@astrox/sdk-web" "^0.1.23"
-    "@astrox/sdk-webview" "^0.1.23"
+    "@astrox/sdk-core" "^0.1.26"
+    "@astrox/sdk-web" "^0.1.26"
+    "@astrox/sdk-webview" "^0.1.26"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/auth-client" "^0.13.1"
     "@dfinity/authentication" "^0.13.1"
@@ -441,10 +441,10 @@
     secp256k1 "^4.0.3"
     xstate "^4.33.2"
 
-"@connect2ic/react@0.2.0-beta.13":
-  version "0.2.0-beta.13"
-  resolved "https://registry.npmjs.org/@connect2ic/react/-/react-0.2.0-beta.13.tgz#fcba03af299cc40dd9a87f8641abaaf336000e66"
-  integrity sha512-py2xaFNpRASl+klSqPZmJaXozIagAPbde6zjifua6Y5pN8Oycd1MUQR4QKc/VvD9tlmwXi1aGSS/42A2ZjaXHg==
+"@connect2ic/react@0.2.0-beta.14":
+  version "0.2.0-beta.14"
+  resolved "https://registry.npmjs.org/@connect2ic/react/-/react-0.2.0-beta.14.tgz#1f25f429ee41709e0ad201198dccb15ff56bc31b"
+  integrity sha512-qnkXrtWZIW3sZQsKaUL9B1aF1sKkOlVvR8aEvZJPWs/RFdaAq0lTNOSNefiqlFLPyeRKvie4d27FT9NqFBfdQw==
   dependencies:
     "@xstate/react" "^3.0.1"
     neverthrow "^5.0.0"
