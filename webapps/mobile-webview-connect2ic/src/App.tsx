@@ -293,10 +293,10 @@ function App() {
                 column={1}
               >
                 <Descriptions.Item label="Principal">
-                  {walletProvider.wallets[0].principal}
+                  {walletProvider?.wallets[0].principal}
                 </Descriptions.Item>
                 <Descriptions.Item label="AccountId">
-                  {walletProvider.wallets[0].accountId}
+                  {walletProvider?.wallets[0].accountId}
                 </Descriptions.Item>
               </Descriptions>
             </>
@@ -311,20 +311,21 @@ function App() {
 
 console.log('agent', navigator.userAgent)
 const client = createClient({
-  providers: defaultProviders,
-  // providers: [
+  // providers: defaultProviders,
+  providers: [
   //   // defaultProviders,
   //   (window as any).astrox_webview ? new ICX({
   //     // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
   //     // providerUrl: "http://localhost:8080/",
   //   }) :
-  //     new AstroX({
-  //       // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-  //       // providerUrl: "http://localhost:8080/",
-  //     }),
+      new AstroX({
+        // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+        providerUrl: "http://localhost:8080/",
+      }),
 
-  // ],
+  ],
   globalProviderConfig: {
+    // host: 'http://localhost:3000',
     // dev: import.meta.env.DEV,
     dev: true,
     ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
