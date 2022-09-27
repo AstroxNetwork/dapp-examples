@@ -60,7 +60,6 @@ function App() {
   const client = useClient()
   const { connect } = useConnect()
   const [walletProvider] = useWallet()
-  const [total, setTotal] = useState("0.0")
   const [balance, setBalance] = useState<boolean | string>(false)
   const [loading, setLoading] = useState(false)
   const [newActor, setNewActor] = useState<ActorSubclass<exampleService>>()
@@ -135,17 +134,6 @@ function App() {
         Connect2ic Example
       </h1>
       <Space size="middle" direction="vertical">
-        {/* <div style={{ textAlign: 'center' }}>
-          {
-            isConnected ? (
-              null
-            ) : (
-              <>
-                <Button type="primary" onClick={handleConnect}>Connect</Button>
-              </>
-            )
-          }
-        </div> */}
         {
           isConnected ? (
             <Row gutter={{ sm: 10, md: 24 }}>

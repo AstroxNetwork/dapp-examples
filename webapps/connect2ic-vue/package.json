@@ -1,0 +1,26 @@
+{
+  "name": "connect2ic-vue3",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@connect2ic/core": "^0.2.0-beta.16",
+    "@connect2ic/vue": "^0.2.0-beta.16",
+    "@dfinity/agent": "^0.11.3",
+    "ant-design-vue": "^3.2.12",
+    "regenerator-runtime": "^0.13.9",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/compiler-sfc": "^3.2.37",
+    "buffer": "^6.0.3",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.13",
+    "vue-tsc": "^0.38.2"
+  }
+}
