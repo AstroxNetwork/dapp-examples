@@ -7,8 +7,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@connect2ic/core": "0.2.0-beta.15",
-    "@connect2ic/react": "0.2.0-beta.15",
+    "@connect2ic/core": "^0.2.0-beta.16",
+    "@connect2ic/react": "^0.2.0-beta.16",
     "@dfinity/agent": "^0.13.1",
     "@dfinity/candid": "^0.13.1",
     "@dfinity/identity": "^0.13.1",

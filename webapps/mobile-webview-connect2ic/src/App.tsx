@@ -18,7 +18,7 @@ import {
 import { balanceFromString, balanceToString } from "./utils/converters"
 import { randomBytes } from "./utils/random"
 import { fromHexString } from "@dfinity/candid"
-import { idlFactory } from './candid/example.idl'
+
 import { Principal } from "@dfinity/principal"
 import { CreateActorResult, createClient } from "@connect2ic/core"
 import {
@@ -38,7 +38,9 @@ import {
 import "@connect2ic/core/style.css"
 import 'antd/dist/antd.css'
 import { NFTOptions, tokenOptions } from "./utils"
-import { _SERVICE } from "./candid/example"
+import  {idlFactory as exampleIdl} from './candid/example.idl'
+import { _SERVICE as exampleService } from "./candid/example"
+import { ActorSubclass } from "@dfinity/agent"
 // const ConnectButton = ({
 //   onClick,
 //   text,
@@ -61,7 +63,7 @@ function App() {
   const [total, setTotal] = useState("0.0")
   const [balance, setBalance] = useState<boolean | string>(false)
   const [loading, setLoading] = useState(false)
-  const [newActor, setNewActor] = useState<CreateActorResult<_SERVICE>>()
+  const [newActor, setNewActor] = useState<ActorSubclass<exampleService>>()
 
   useEffect(() => {
     if (isConnected) {
@@ -80,15 +82,18 @@ function App() {
 
   const createActor = async (values: { canisterId: string }) => {
     setLoading(true)
-    const result = await activeProvider.createActor<_SERVICE>(values.canisterId, idlFactory)
-    console.log('createActor', result)
-    setNewActor(result)
+    // @ts-ignore
+    const {value: actor} = await activeProvider.createActor<exampleService>(values.canisterId, exampleIdl)
+    setNewActor(actor)
+    console.log('actor', actor)
+    const result1 = await actor.created_apps()
+    console.log('result1', result1)
     setLoading(false)
   }
 
   // const handleConnect = async () => {
   //   console.log('connect')
-  //   const result = connect((window as any).astrox_webview ? 'icx' : 'astrox');
+  //   const result = connect((window as any).icx ? 'icx' : 'astrox');
   //   console.log('result', result)
   // }
 
@@ -311,27 +316,25 @@ function App() {
 
 console.log('agent', navigator.userAgent)
 const client = createClient({
-  // providers: defaultProviders,
-  providers: [
-  //   // defaultProviders,
-  //   (window as any).astrox_webview ? new ICX({
+  providers: defaultProviders,
+  // providers: [
+  //   (window as any).icx ? new ICX({
   //     // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
   //     // providerUrl: "http://localhost:8080/",
   //   }) :
-      new AstroX({
-        // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-        providerUrl: "http://localhost:8080/",
-      }),
-
-  ],
+  //     new AstroX({
+  //       // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+  //       // providerUrl: "http://localhost:8080/",
+  //     }),
+  // ],
   globalProviderConfig: {
     // host: 'http://localhost:3000',
     // dev: import.meta.env.DEV,
-    dev: true,
-    ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
-    ledgerHost: "http://localhost:8000",
+    // dev: true,
+    // ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
+    // ledgerHost: "http://localhost:8000",
     // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
-    whitelist: ['qsgjb-riaaa-aaaaa-aaaga-cai', 'qhbym-qaaaa-aaaaa-aaafq-cai',],
+    whitelist: ['qhbym-qaaaa-aaaaa-aaafq-cai'],
   },
 })
 
