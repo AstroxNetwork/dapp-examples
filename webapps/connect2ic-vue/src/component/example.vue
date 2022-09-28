@@ -263,6 +263,27 @@ const transferNFT = async (values: { [key: string]: string }) => {
           </a-form>
         </a-col>
       </a-row>
+      <a-descriptions
+        title="Authenticate Identity Info"
+        size="default"
+        :column="1"
+        v-if="isConnected"
+      >
+        <a-descriptions-item label="Principal ID">{{principal}}</a-descriptions-item>
+        <!-- <a-descriptions-item label="Identity">{{activeProvider}}</a-descriptions-item>  -->
+      </a-descriptions>
+      <a-descriptions
+        title="Authenticate Wallet Info"
+        size="default"
+        :column="1"
+      >
+        <a-descriptions-item label="Principal">
+          {{walletProvider?.wallets[0].principal}}
+        </a-descriptions-item>
+        <a-descriptions-item label="AccountId">
+          {{walletProvider?.wallets[0].accountId}}
+        </a-descriptions-item>
+      </a-descriptions>
     </div>
     <!-- </a-space> -->
   </div>
