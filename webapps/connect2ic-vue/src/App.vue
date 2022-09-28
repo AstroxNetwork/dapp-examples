@@ -13,6 +13,7 @@ import {
   ConnectDialog,
   Connect2ICProvider,
 } from "@connect2ic/vue"
+import { tokenOptions, NFTOptions } from './utils/'
 
 import  {idlFactory as exampleIdl} from './candid/example.idl'
 import type { _SERVICE as exampleService } from "./candid/example"
@@ -117,6 +118,115 @@ const client = createClient({
             </a-form>
           </a-col>
         </a-row>
+        <div :v-if="isConnected">
+          <h2>Transaction example</h2>
+          <a-row :gutter="{ sm: 10, md: 24 }">
+                <a-col :xs="24" :md="12">
+                  <a-form
+                    :initialValues="{
+                      standard: 'ICP',
+                      symbol: 'ICP'
+                    }"
+                    :onFinish="transferToken">
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="amount"
+                      label="Amount"
+
+                    >
+                      <Input placeholder='Amount' />
+                    </a-form-item>
+
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="to"
+                      label="To"
+                    >
+                      <Input placeholder='To' />
+                    </a-form-item>
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="standard"
+                      label="Standard"
+                    >
+                      <Select
+                        :style="{ maxWidth: 120 }"
+                        :options="tokenOptions"
+                        placeholder="Standard"
+                      >
+                      </Select>
+                    </a-form-item>
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="symbol"
+                      label="Symbol"
+                    >
+                      <Select
+                        :style="{ maxWidth: 120 }"
+                        options={tokenOptions}
+                        placeholder="Symbol"
+                      >
+                      </Select>
+                    </a-form-item>
+                    <div :style="{ textAlign: 'right' }">
+                      <a-button type="primary" loading={loading} htmlType="submit" >Transfer Token</a-button>
+                    </div>
+                  </a-form>
+                </a-col>
+                <a-col xs={24} md={12}>
+                  <a-form
+                    onFinish={transferNFT}
+                    :initialValues="{
+                      standard: 'EXT',
+                    }"
+                  >
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="tokenIdentifier"
+                      label="TokenIdentifier"
+                    >
+                      <Input placeholder='TokenIdentifier' />
+                    </a-form-item>
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="tokenIndex"
+                      label="TokenIndex"
+                    >
+                      <Input placeholder='TokenIndex' />
+                    </a-form-item>
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="canisterId"
+                      label="CanisterId"
+                    >
+                      <Input placeholder='CanisterId' />
+                    </a-form-item>
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="to"
+                      label="To"
+                    >
+                      <Input placeholder='To' />
+                    </a-form-item>
+                    <a-form-item
+                      :labelCol="{ span: 6 }"
+                      name="standard"
+                      label="Standard"
+                    >
+                      <Select
+                        :style="{ maxWidth: 120 }"
+                        :options="NFTOptions"
+                        placeholder="Standard"
+                      >
+                      </Select>
+                    </a-form-item>
+                    <div :style="{ textAlign: 'right' }">
+                      <a-button type="primary" loading={loading} htmlType="submit" >Transfer NFT</a-button>
+                    </div>
+                  </a-form>
+                </a-col>
+              </a-row>
+        </div>
       </a-space>
     </div>
   </Connect2ICProvider>
