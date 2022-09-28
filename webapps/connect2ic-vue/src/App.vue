@@ -5,6 +5,7 @@ import logo from "./assets/dfinity.svg"
  */
 import { createClient } from "@connect2ic/core"
 import { defaultProviders } from "@connect2ic/core/providers"
+import { Connect2ICProvider } from "@connect2ic/vue"
 import "@connect2ic/core/style.css"
 import Example from "./component/example.vue"
 
