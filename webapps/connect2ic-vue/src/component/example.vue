@@ -27,6 +27,9 @@ const data = reactive({
   newActor: null,
 })
 
+console.log('isConnected', isConnected)
+console.log('isConnected', isConnected.value)
+
 const queryBalance = async () => {
   data.loading = true
   const result = await walletProvider.queryBalance()
@@ -91,8 +94,8 @@ const transferNFT = async (values: { [key: string]: string }) => {
       <p class="slogan">Connect2ic Vue example</p>
     </header>
     <a-space size="middle" direction="vertical">
-      <a-row :v-if="isConnected" :gutter="{ sm: 10, md: 24 }">
-        <a-col :xs="24" :md="12">
+      <a-row v-if="isConnected.value" :gutter="{ sm: 10, md: 24 }">
+        <a-col :xs="{span: 24}" :md="{span: 12}">
           <a-button
             type="primary"
             :loading="data.loading"
@@ -101,7 +104,7 @@ const transferNFT = async (values: { [key: string]: string }) => {
           >
           <p :style="{ marginTop: 10 }">Balance: {{ data.balance }}</p>
         </a-col>
-        <a-col :xs="24" md="12">
+        <a-col :xs="{span: 24}" md="{span: 12}">
           <a-form :onFinish="createActor">
             <a-form-item name="canisterId">
               <Input placeholder="canisterId" />
@@ -112,10 +115,10 @@ const transferNFT = async (values: { [key: string]: string }) => {
           </a-form>
         </a-col>
       </a-row>
-      <div :v-if="isConnected">
+      <div v-if="isConnected.value">
         <h2>Transaction example</h2>
-        <a-row :gutter="{ sm: 10, md: 24 }">
-          <a-col :xs="24" :md="12">
+        <a-row gutter="{ sm: 10, md: 24 }">
+          <a-col :xs="{span: 24}" :md="{span: 12}">
             <a-form
               :initialValues="{
                 standard: 'ICP',
@@ -157,7 +160,7 @@ const transferNFT = async (values: { [key: string]: string }) => {
               </div>
             </a-form>
           </a-col>
-          <a-col xs="{24}" md="{12}">
+          <a-col :xs="{span: 24}" :md="{span: 12}">
             <a-form
               onFinish="{transferNFT}"
               :initialValues="{

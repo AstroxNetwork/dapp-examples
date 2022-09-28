@@ -3,6 +3,7 @@ import logo from "./assets/dfinity.svg"
 /*
  * Connect2ic provides essential utilities for IC app development
  */
+import{Connect2ICProvider}from"@connect2ic/vue"
 import { createClient } from "@connect2ic/core"
 import { defaultProviders } from "@connect2ic/core/providers"
 import { Connect2ICProvider } from "@connect2ic/vue"
