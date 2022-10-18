@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react"
 import logo from "./assets/dfinity.svg"
+import VConsole from 'vconsole';
 /*
  * Import canister definitions like this:
  */
@@ -54,6 +55,7 @@ import { ActorSubclass } from "@dfinity/agent"
 //     </>
 //   )
 // }
+const vConsole = new VConsole();
 
 function App() {
   const { isConnected, activeProvider, principal } = useConnect()
@@ -304,17 +306,17 @@ function App() {
 
 console.log('agent', navigator.userAgent)
 const client = createClient({
-  providers: defaultProviders,
-  // providers: [
-  //   (window as any).icx ? new ICX({
-  //     // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-  //     // providerUrl: "http://localhost:8080/",
-  //   }) :
-  //     new AstroX({
-  //       // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-  //       // providerUrl: "http://localhost:8080/",
-  //     }),
-  // ],
+  // providers: defaultProviders,
+  providers: [
+    (window as any).icx ? new ICX({
+      // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+      // providerUrl: "http://localhost:8080/",
+    }) :
+      new AstroX({
+        providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+        // providerUrl: "http://localhost:8080/",
+      }),
+  ],
   globalProviderConfig: {
     // host: 'http://localhost:3000',
     // dev: import.meta.env.DEV,

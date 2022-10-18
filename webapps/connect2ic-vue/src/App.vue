@@ -8,6 +8,9 @@ import { createClient } from "@connect2ic/core"
 import { defaultProviders } from "@connect2ic/core/providers"
 import "@connect2ic/core/style.css"
 import Example from "./component/example.vue"
+import VConsole from 'vconsole';
+
+const vConsole = new VConsole();
 
 const client = createClient({
   providers: defaultProviders,

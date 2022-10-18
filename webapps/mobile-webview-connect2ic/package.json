@@ -7,8 +7,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@connect2ic/core": "^0.2.0-beta.16",
-    "@connect2ic/react": "^0.2.0-beta.16",
+    "@connect2ic/core": "0.2.0-beta.16",
+    "@connect2ic/react": "0.2.0-beta.16",
     "@dfinity/agent": "^0.13.1",
     "@dfinity/candid": "^0.13.1",
     "@dfinity/identity": "^0.13.1",
@@ -18,7 +18,7 @@
     "less": "^4.1.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "vconsole": "^3.14.6"
+    "vconsole": "^3.14.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.9",
