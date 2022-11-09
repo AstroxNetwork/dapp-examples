@@ -107,6 +107,7 @@ function App() {
       standard: values.standard,
       symbol: values.symbol,
       amount: Number(values.amount),
+      
     })
     console.log('transfer    end', reuslt)
     setLoading(false)
@@ -313,9 +314,12 @@ const client = createClient({
       // providerUrl: "http://localhost:8080/",
     }) :
       new AstroX({
-        providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+        // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
         // providerUrl: "http://localhost:8080/",
       }),
+     new PlugWallet(),
+     new InternetIdentity()
+
   ],
   globalProviderConfig: {
     // host: 'http://localhost:3000',
