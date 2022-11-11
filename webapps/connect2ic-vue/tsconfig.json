@@ -12,7 +12,7 @@
     "checkJs": false,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext", "dom", "ES2020.BigInt"],
     "types": ["vite/client"],
     "baseUrl": ".",
     "importsNotUsedAsValues": "error",

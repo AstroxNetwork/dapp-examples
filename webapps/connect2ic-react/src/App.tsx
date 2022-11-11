@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react"
 import logo from "./assets/dfinity.svg"
-import VConsole from 'vconsole';
+// import VConsole from 'vconsole';
 /*
  * Import canister definitions like this:
  */
@@ -55,7 +55,7 @@ import { ActorSubclass } from "@dfinity/agent"
 //     </>
 //   )
 // }
-const vConsole = new VConsole();
+// const vConsole = new VConsole();
 
 function App() {
   const { isConnected, activeProvider, principal } = useConnect()
@@ -101,30 +101,41 @@ function App() {
   const transferToken = async (values: {
     [key: string]: string
   }) => {
-    setLoading(true)
-    const reuslt = await walletProvider.requestTransfer({
-      to: values.to,
-      standard: values.standard,
-      symbol: values.symbol,
-      amount: Number(values.amount),
-      
-    })
-    console.log('transfer    end', reuslt)
-    setLoading(false)
+    try {
+      setLoading(true)
+      const reuslt = await walletProvider.requestTransfer({
+        to: values.to,
+        standard: values.standard,
+        symbol: values.symbol,
+        amount: Number(values.amount),
+        memo: BigInt(values.memo),
+      })
+      console.log('transfer    end', reuslt)
+      setLoading(false)
+    } catch (err){
+      setLoading(false)
+    }
+    
   }
 
   const transferNFT = async (values: {
     [key: string]: string
   }) => {
-    setLoading(true)
-    const reuslt = await walletProvider.requestTransferNFT({
-      to: values.to,
-      standard: values.standard,
-      canisterId: values.canisterId,
-      tokenIdentifier: values.tokenIdentifier,
-      tokenIndex: Number(values.tokenIndex),
-    })
-    setLoading(false)
+    try {
+      setLoading(true)
+      const reuslt = await walletProvider.requestTransferNFT({
+        to: values.to,
+        standard: values.standard,
+        canisterId: values.canisterId,
+        tokenIdentifier: values.tokenIdentifier,
+        tokenIndex: Number(values.tokenIndex),
+        memo: BigInt(values.memo),
+      })
+      setLoading(false)
+    } catch(err) {
+      setLoading(false)
+    }
+   
   }
 
   return (
@@ -185,6 +196,13 @@ function App() {
                       label="To"
                     >
                       <Input placeholder='To' />
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
+                      name="memo"
+                      label="Memo"
+                    >
+                      <Input placeholder='Memo' />
                     </Form.Item>
                     <Form.Item
                       labelCol={{ span: 6 }}
@@ -252,6 +270,13 @@ function App() {
                     </Form.Item>
                     <Form.Item
                       labelCol={{ span: 6 }}
+                      name="memo"
+                      label="Memo"
+                    >
+                      <Input placeholder='Memo' />
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 6 }}
                       name="standard"
                       label="Standard"
                     >
@@ -315,19 +340,21 @@ const client = createClient({
     }) :
       new AstroX({
         // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-        // providerUrl: "http://localhost:8080/",
+        providerUrl: "http://localhost:8080/",
+        delegationModes: ["global"],
       }),
-     new PlugWallet(),
-     new InternetIdentity()
+    //  new PlugWallet(),
+    //  new InternetIdentity()
 
   ],
   globalProviderConfig: {
     // host: 'http://localhost:3000',
     // dev: import.meta.env.DEV,
-    // dev: true,
+    dev: true,
     // ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
     // ledgerHost: "http://localhost:8000",
     // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
+    // delegationModes:['global'],
     whitelist: ['qhbym-qaaaa-aaaaa-aaafq-cai'],
   },
 })

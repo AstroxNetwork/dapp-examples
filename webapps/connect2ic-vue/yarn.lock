@@ -46,10 +46,10 @@
     cross-fetch "^3.1.4"
     js-sha256 "^0.9.0"
 
-"@astrox/sdk-core@^0.1.28":
-  version "0.1.28"
-  resolved "https://registry.npmjs.org/@astrox/sdk-core/-/sdk-core-0.1.28.tgz#adf3361a45f458f741a1b6693f9cf46cece8e5f1"
-  integrity sha512-WSQ2W8pTijh/OM4jYClaAUShgZM0ZuWB8fQr7cSNxHgy2EiLGwwEf17NNnkvtZ296KinxjP03cOPiBJMM/pXng==
+"@astrox/sdk-core@^0.1.30":
+  version "0.1.30"
+  resolved "https://registry.npmmirror.com/@astrox/sdk-core/-/sdk-core-0.1.30.tgz#36df1d400ac7e142ec6c7a2ae5b945877f931825"
+  integrity sha512-PyzPMJ8DWD6LJPlVCD7wEPM+DkuuFIyR0GD0HF7mwuDeeeJYYeJijrySd/VeLbiWF4YsoIArSrIeiX9M2AHytQ==
   dependencies:
     "@dfinity/agent" "^0.13.1"
     "@dfinity/candid" "^0.13.1"
@@ -60,12 +60,12 @@
     jest "^29.0.2"
     simple-cbor "^0.4.1"
 
-"@astrox/sdk-web@^0.1.28":
-  version "0.1.28"
-  resolved "https://registry.npmjs.org/@astrox/sdk-web/-/sdk-web-0.1.28.tgz#e36030b5af73a1ac7c7f98835cbe6728492ad237"
-  integrity sha512-JWA5qBJ2fb+eWQz5c1/VAF5ZxGPLxoVQfsH4zRQMfSGovPXBZMAtn8eE22yoxhuiG94/s7+1uNLAkqIljbDulQ==
+"@astrox/sdk-web@^0.1.30":
+  version "0.1.30"
+  resolved "https://registry.npmmirror.com/@astrox/sdk-web/-/sdk-web-0.1.30.tgz#6da8f38904c85910d4a23dc50856baa69e162285"
+  integrity sha512-gbg9xA/5C2OrA/eWVh76Sxut9jA5shiHNYnNFyjk07gTkh9VlcNc4KMJsYOHiyYEATfW2WgGBJQb7nHuJ8mqVA==
   dependencies:
-    "@astrox/sdk-core" "^0.1.28"
+    "@astrox/sdk-core" "^0.1.30"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/authentication" "0.13.1"
     "@dfinity/candid" "^0.13.1"
@@ -79,12 +79,12 @@
     jest "^29.0.2"
     js-sha256 "^0.9.0"
 
-"@astrox/sdk-webview@^0.1.28":
-  version "0.1.28"
-  resolved "https://registry.npmjs.org/@astrox/sdk-webview/-/sdk-webview-0.1.28.tgz#943359c3e6a00b687b95d10095aa5a1174652e7e"
-  integrity sha512-RcDOohAyGBZZtvmcpFW4HuPyC/rN9RvekG/QBOAUxPP6WLTaYEofuC8eku8O1EeWl115Mk8bl8BGiQYGCqDQ8A==
+"@astrox/sdk-webview@^0.1.30":
+  version "0.1.30"
+  resolved "https://registry.npmmirror.com/@astrox/sdk-webview/-/sdk-webview-0.1.30.tgz#96f93e9d9b57c8a7fdf151e08584a0ae949510fc"
+  integrity sha512-DJG0k1cH28gc2mi+msYaRMKZivNRGS/Vy4zi3TKWEoRqTsDphD0ild+iW6JDILljw+r6NuIK44IsfsdYqW6NVg==
   dependencies:
-    "@astrox/sdk-core" "^0.1.28"
+    "@astrox/sdk-core" "^0.1.30"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/candid" "^0.13.1"
     "@dfinity/identity" "^0.13.1"
@@ -395,15 +395,15 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@connect2ic/core@^0.2.0-beta.16":
-  version "0.2.0-beta.16"
-  resolved "https://registry.npmjs.org/@connect2ic/core/-/core-0.2.0-beta.16.tgz#e5345bf21ea08c0b390b968474f0320e71d11528"
-  integrity sha512-eSiB6DxHpsRybA/XS43fmEHLhnvEEdp9ioAX+y92lWmTlBSeuK3aioFoQsjMKJ3hjdwg3vNJpaNkP51vkrraYQ==
+"@connect2ic/core@0.2.0-beta.20":
+  version "0.2.0-beta.20"
+  resolved "https://registry.npmmirror.com/@connect2ic/core/-/core-0.2.0-beta.20.tgz#0eace9627cb768852ed60b44ac2ede75f4133423"
+  integrity sha512-v6T2CW0Ynf0pglMTbTVcH0s/SgY2tiMyMZEja5/69312Uwr18mGGlRE/q5VotAH4Hf5Yr+Jt0kaIsEMNg+nprQ==
   dependencies:
     "@astrox/connection" "^0.0.52"
-    "@astrox/sdk-core" "^0.1.28"
-    "@astrox/sdk-web" "^0.1.28"
-    "@astrox/sdk-webview" "^0.1.28"
+    "@astrox/sdk-core" "^0.1.30"
+    "@astrox/sdk-web" "^0.1.30"
+    "@astrox/sdk-webview" "^0.1.30"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/auth-client" "^0.13.1"
     "@dfinity/authentication" "^0.13.1"
@@ -420,10 +420,10 @@
     secp256k1 "^4.0.3"
     xstate "^4.33.2"
 
-"@connect2ic/vue@^0.2.0-beta.16":
-  version "0.2.0-beta.16"
-  resolved "https://registry.npmjs.org/@connect2ic/vue/-/vue-0.2.0-beta.16.tgz#d9693891b39679ac8ee650b242b67abb676cdc40"
-  integrity sha512-QmTgmznMokxNKq1AvJg9jS5B+eZNRn4n2gEq7l0AKu9NHXG/71eHuDWZ0I8wVQHDFSLPIqwLy/kSnhJFUI5GMA==
+"@connect2ic/vue@0.2.0-beta.20":
+  version "0.2.0-beta.20"
+  resolved "https://registry.npmmirror.com/@connect2ic/vue/-/vue-0.2.0-beta.20.tgz#a0695313b2786b83ed036bb75162ce995474eee7"
+  integrity sha512-tUnT4Oc5PecrqOU5GIsDkgrQpfhpR2K53nvZ8VIsUvRyc3CZ8UhWDHcVVFOR076H0QOohEii6Or9smEE3F7tow==
   dependencies:
     "@xstate/vue" "^2.0.0"
 

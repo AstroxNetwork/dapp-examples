@@ -21,6 +21,7 @@ interface FormState {
   symbol: string
   tokenIdentifier: string
   tokenIndex: string
+  memo: string
 }
 
 const { isConnected, connect, activeProvider, provider, principal } =
@@ -40,6 +41,7 @@ const formState = reactive<FormState>({
   symbol: "",
   tokenIdentifier: "",
   tokenIndex: "",
+  memo: "",
 })
 
 // onMounted(() => {
@@ -51,7 +53,6 @@ const formState = reactive<FormState>({
 
 watch(activeProvider, (activeProvider, prevProvider) => {
   /* ... */
-
 })
 
 const queryBalance = async () => {
@@ -81,7 +82,7 @@ const createActor = async (values: { canisterId: string }) => {
 
 const handleConnect = async () => {
   console.log("connect")
-  
+
   const result = await connect((window as any).icx ? "icx" : "astrox")
   console.log("result", result)
 }
@@ -94,6 +95,7 @@ const transferToken = async () => {
     standard: formState.standard,
     symbol: formState.symbol,
     amount: Number(formState.amount),
+    memo: BigInt(formState.memo),
   })
   console.log("transfer    end", reuslt)
   data.loading = false
@@ -108,6 +110,7 @@ const transferNFT = async (values: { [key: string]: string }) => {
     canisterId: formState.canisterId,
     tokenIdentifier: formState.tokenIdentifier,
     tokenIndex: Number(formState.tokenIndex),
+    memo: BigInt(formState.memo),
   })
   data.loading = false
 }
@@ -167,6 +170,9 @@ const transferNFT = async (values: { [key: string]: string }) => {
 
             <a-form-item :labelCol="{ span: 6 }" name="to" label="To">
               <a-input placeholder="To" v-model:value="formState.to" />
+            </a-form-item>
+            <a-form-item :labelCol="{ span: 6 }" name="memo" label="Memo">
+              <a-input placeholder="Memo" v-model:value="formState.memo" />
             </a-form-item>
             <a-form-item
               :labelCol="{ span: 6 }"
@@ -239,6 +245,9 @@ const transferNFT = async (values: { [key: string]: string }) => {
             <a-form-item :labelCol="{ span: 6 }" name="to" label="To">
               <a-input placeholder="To" v-model:value="formState.to" />
             </a-form-item>
+            <a-form-item :labelCol="{ span: 6 }" name="memo" label="Memo">
+              <a-input placeholder="Memo" v-model:value="formState.memo" />
+            </a-form-item>
             <a-form-item
               :labelCol="{ span: 6 }"
               name="standard"
@@ -269,7 +278,9 @@ const transferNFT = async (values: { [key: string]: string }) => {
         :column="1"
         v-if="isConnected"
       >
-        <a-descriptions-item label="Principal ID">{{principal}}</a-descriptions-item>
+        <a-descriptions-item label="Principal ID">{{
+          principal
+        }}</a-descriptions-item>
         <!-- <a-descriptions-item label="Identity">{{activeProvider}}</a-descriptions-item>  -->
       </a-descriptions>
       <a-descriptions
@@ -278,10 +289,10 @@ const transferNFT = async (values: { [key: string]: string }) => {
         :column="1"
       >
         <a-descriptions-item label="Principal">
-          {{walletProvider?.wallets[0].principal}}
+          {{ walletProvider?.wallets[0].principal }}
         </a-descriptions-item>
         <a-descriptions-item label="AccountId">
-          {{walletProvider?.wallets[0].accountId}}
+          {{ walletProvider?.wallets[0].accountId }}
         </a-descriptions-item>
       </a-descriptions>
     </div>

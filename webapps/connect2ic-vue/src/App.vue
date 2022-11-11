@@ -3,17 +3,35 @@ import logo from "./assets/dfinity.svg"
 /*
  * Connect2ic provides essential utilities for IC app development
  */
-import{Connect2ICProvider}from"@connect2ic/vue"
+import { Connect2ICProvider } from "@connect2ic/vue"
 import { createClient } from "@connect2ic/core"
-import { defaultProviders } from "@connect2ic/core/providers"
+import {
+  AstroX,
+  defaultProviders,
+  ICX,
+  PlugWallet,
+} from "@connect2ic/core/providers"
 import "@connect2ic/core/style.css"
 import Example from "./component/example.vue"
-import VConsole from 'vconsole';
+import VConsole from "vconsole"
 
-const vConsole = new VConsole();
+const vConsole = new VConsole()
 
 const client = createClient({
-  providers: defaultProviders,
+  // providers: defaultProviders,
+  providers: [
+    (window as any).icx
+      ? new ICX({
+          // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+          // providerUrl: "http://localhost:8080/",
+        })
+      : new AstroX({
+          // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
+          providerUrl: "http://localhost:8080/",
+          delegationModes: ["global"],
+        }),
+    new PlugWallet(),
+  ],
   globalProviderConfig: {},
 })
 </script>
@@ -25,5 +43,4 @@ const client = createClient({
 </template>
 
 <style>
-
 </style>

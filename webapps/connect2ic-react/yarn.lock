@@ -60,10 +60,10 @@
     cross-fetch "^3.1.4"
     js-sha256 "^0.9.0"
 
-"@astrox/sdk-core@^0.1.28":
-  version "0.1.28"
-  resolved "https://registry.npmjs.org/@astrox/sdk-core/-/sdk-core-0.1.28.tgz#adf3361a45f458f741a1b6693f9cf46cece8e5f1"
-  integrity sha512-WSQ2W8pTijh/OM4jYClaAUShgZM0ZuWB8fQr7cSNxHgy2EiLGwwEf17NNnkvtZ296KinxjP03cOPiBJMM/pXng==
+"@astrox/sdk-core@^0.1.30":
+  version "0.1.30"
+  resolved "https://registry.npmmirror.com/@astrox/sdk-core/-/sdk-core-0.1.30.tgz#36df1d400ac7e142ec6c7a2ae5b945877f931825"
+  integrity sha512-PyzPMJ8DWD6LJPlVCD7wEPM+DkuuFIyR0GD0HF7mwuDeeeJYYeJijrySd/VeLbiWF4YsoIArSrIeiX9M2AHytQ==
   dependencies:
     "@dfinity/agent" "^0.13.1"
     "@dfinity/candid" "^0.13.1"
@@ -74,12 +74,12 @@
     jest "^29.0.2"
     simple-cbor "^0.4.1"
 
-"@astrox/sdk-web@^0.1.28":
-  version "0.1.28"
-  resolved "https://registry.npmjs.org/@astrox/sdk-web/-/sdk-web-0.1.28.tgz#e36030b5af73a1ac7c7f98835cbe6728492ad237"
-  integrity sha512-JWA5qBJ2fb+eWQz5c1/VAF5ZxGPLxoVQfsH4zRQMfSGovPXBZMAtn8eE22yoxhuiG94/s7+1uNLAkqIljbDulQ==
+"@astrox/sdk-web@^0.1.30":
+  version "0.1.30"
+  resolved "https://registry.npmmirror.com/@astrox/sdk-web/-/sdk-web-0.1.30.tgz#6da8f38904c85910d4a23dc50856baa69e162285"
+  integrity sha512-gbg9xA/5C2OrA/eWVh76Sxut9jA5shiHNYnNFyjk07gTkh9VlcNc4KMJsYOHiyYEATfW2WgGBJQb7nHuJ8mqVA==
   dependencies:
-    "@astrox/sdk-core" "^0.1.28"
+    "@astrox/sdk-core" "^0.1.30"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/authentication" "0.13.1"
     "@dfinity/candid" "^0.13.1"
@@ -93,12 +93,12 @@
     jest "^29.0.2"
     js-sha256 "^0.9.0"
 
-"@astrox/sdk-webview@^0.1.28":
-  version "0.1.28"
-  resolved "https://registry.npmjs.org/@astrox/sdk-webview/-/sdk-webview-0.1.28.tgz#943359c3e6a00b687b95d10095aa5a1174652e7e"
-  integrity sha512-RcDOohAyGBZZtvmcpFW4HuPyC/rN9RvekG/QBOAUxPP6WLTaYEofuC8eku8O1EeWl115Mk8bl8BGiQYGCqDQ8A==
+"@astrox/sdk-webview@^0.1.30":
+  version "0.1.30"
+  resolved "https://registry.npmmirror.com/@astrox/sdk-webview/-/sdk-webview-0.1.30.tgz#96f93e9d9b57c8a7fdf151e08584a0ae949510fc"
+  integrity sha512-DJG0k1cH28gc2mi+msYaRMKZivNRGS/Vy4zi3TKWEoRqTsDphD0ild+iW6JDILljw+r6NuIK44IsfsdYqW6NVg==
   dependencies:
-    "@astrox/sdk-core" "^0.1.28"
+    "@astrox/sdk-core" "^0.1.30"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/candid" "^0.13.1"
     "@dfinity/identity" "^0.13.1"
@@ -416,15 +416,15 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@connect2ic/core@0.2.0-beta.16":
-  version "0.2.0-beta.16"
-  resolved "https://registry.npmjs.org/@connect2ic/core/-/core-0.2.0-beta.16.tgz#e5345bf21ea08c0b390b968474f0320e71d11528"
-  integrity sha512-eSiB6DxHpsRybA/XS43fmEHLhnvEEdp9ioAX+y92lWmTlBSeuK3aioFoQsjMKJ3hjdwg3vNJpaNkP51vkrraYQ==
+"@connect2ic/core@0.2.0-beta.19":
+  version "0.2.0-beta.19"
+  resolved "https://registry.npmmirror.com/@connect2ic/core/-/core-0.2.0-beta.19.tgz#b567382037e35ad3f530d2c729155808feb7add5"
+  integrity sha512-2FWZbpEx20xMkqi6SxpEPw/BdOIAUWgr5BHNXWoJ5tt1u+DkD7qJuuoEWF8qIMqmqfCrrrnHoJFoDY6o8z87wA==
   dependencies:
     "@astrox/connection" "^0.0.52"
-    "@astrox/sdk-core" "^0.1.28"
-    "@astrox/sdk-web" "^0.1.28"
-    "@astrox/sdk-webview" "^0.1.28"
+    "@astrox/sdk-core" "^0.1.30"
+    "@astrox/sdk-web" "^0.1.30"
+    "@astrox/sdk-webview" "^0.1.30"
     "@dfinity/agent" "^0.13.1"
     "@dfinity/auth-client" "^0.13.1"
     "@dfinity/authentication" "^0.13.1"
@@ -441,10 +441,10 @@
     secp256k1 "^4.0.3"
     xstate "^4.33.2"
 
-"@connect2ic/react@0.2.0-beta.16":
-  version "0.2.0-beta.16"
-  resolved "https://registry.npmjs.org/@connect2ic/react/-/react-0.2.0-beta.16.tgz#b109e8a09b9be6337a2f70dec718a3d484ead0b2"
-  integrity sha512-MPBA2UoP9a6BOnlo2wN0SU/OE838rA+SYtj7t/ayAxa7ekkbsUOA2q62885MJd4uNsMOUoDzWFn8z7wCF3Bt3w==
+"@connect2ic/react@0.2.0-beta.19":
+  version "0.2.0-beta.19"
+  resolved "https://registry.npmmirror.com/@connect2ic/react/-/react-0.2.0-beta.19.tgz#234f137b5f4347f4eedd63bf9abd7175187bfb16"
+  integrity sha512-zEWV1s6Y/2IwA3daKAFS5BpxS14H1CGVWSsBxCyBcZB6IBxDPsNWJQelUxq/cpmxN7+r+89ShF1jAaFoMhKG9A==
   dependencies:
     "@xstate/react" "^3.0.1"
     neverthrow "^5.0.0"
@@ -460,6 +460,18 @@
   version "3.4.1"
   resolved "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-3.4.1.tgz#75b4c27948c81e88ccd3a8902047bcd797f38d32"
   integrity sha512-ej5oVy6lykXsvieQtqZxCOaLT+xD4+QNarq78cIYISHmZXshCvROLudpQN3lfL8G0NL7plMSSK+zlyvCaIJ4Iw==
+
+"@dfinity/agent@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.npmmirror.com/@dfinity/agent/-/agent-0.13.1.tgz#db33cc0d8642dc15a0e675b49845332d8fb342e8"
+  integrity sha512-ALBgvdOvj0hWDV4GGy+d80CLGIr9Rm8TEDCJc+VrROEQe6TJiI1PAGpvq8fMeN8vv2O4m0yDIvIgseN901oHXA==
+  dependencies:
+    base64-arraybuffer "^0.2.0"
+    bignumber.js "^9.0.0"
+    borc "^2.1.1"
+    js-sha256 "0.9.0"
+    simple-cbor "^0.4.1"
+    ts-node "^10.8.2"
 
 "@dfinity/agent@^0.10.0":
   version "0.10.4"
@@ -522,6 +534,13 @@
   resolved "https://registry.npmjs.org/@dfinity/authentication/-/authentication-0.13.3.tgz#3e4a050ec08432b0484b679b40112b583f9b2998"
   integrity sha512-zAfw9mfKgEiYeeESm5GnLw6N0NHJ+Veg5JdgtMy1SNXhBQvQCyw/vU+B+RPnnKcuXP8fIGhyjEhKm2QgW83JfA==
 
+"@dfinity/candid@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.npmmirror.com/@dfinity/candid/-/candid-0.13.1.tgz#f1b73acfa8ab6fe6a2cee4eeab1b5e84ea29a7b2"
+  integrity sha512-kle1v5/D4Tvj0UZlFjfb/k0ET/iwOov0TugfxsuXrPBaeDyOgFNfICeB7QOflFC5B9OsI+CkZwNdbWC3th5QIg==
+  dependencies:
+    ts-node "^10.8.2"
+
 "@dfinity/candid@^0.12.0":
   version "0.12.2"
   resolved "https://registry.npmjs.org/@dfinity/candid/-/candid-0.12.2.tgz#9170304d7fbce50d29b5fd602d988fc23c5b333d"
@@ -535,6 +554,19 @@
   integrity sha512-PLB5nH42Vk06iUinc4oqL8uzIST04ZQJ5UaQd7isVhYrhuSC+IU5IiAH00psTjGy8hIKm4y5mond3BrSLXIfqg==
   dependencies:
     ts-node "^10.8.2"
+
+"@dfinity/identity@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.npmmirror.com/@dfinity/identity/-/identity-0.13.1.tgz#33e5cfa4bcd0ad7fe97b1b6e5e1c42fe79673814"
+  integrity sha512-dpmZNc5jLwCgkKrMQNQdtkaSU0KH5bhWF3Y/aw6O7bbQs2WxiGF7OPvuZP1e7zMw9pYtEfE5XgBznEwMRIhC9A==
+  dependencies:
+    "@peculiar/webcrypto" "^1.4.0"
+    borc "^2.1.1"
+    js-sha256 "^0.9.0"
+    secp256k1 "^4.0.2"
+    ts-node "^10.8.2"
+    tweetnacl "^1.0.1"
+    vitest "^0.18.0"
 
 "@dfinity/identity@^0.10.0":
   version "0.10.4"
@@ -571,6 +603,13 @@
     ts-node "^10.8.2"
     tweetnacl "^1.0.1"
     vitest "^0.18.0"
+
+"@dfinity/principal@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.npmmirror.com/@dfinity/principal/-/principal-0.13.1.tgz#7363149e0aa613c3a8ca47485c2fe5e48a708129"
+  integrity sha512-JB8JS5HQIOtb8ITBgDnW5A1RIr0bBJE73yuEq8q7y8cVtI9ZKShI6eDYz0qpWZLQhWZd1demZcfQOymW2xgtHg==
+  dependencies:
+    ts-node "^10.8.2"
 
 "@dfinity/principal@^0.10.0":
   version "0.10.4"
