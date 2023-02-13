@@ -5,6 +5,7 @@ import {
   ConnectButton,
   useConnect,
   useWallet,
+  useBalance,
   ConnectDialog,
   Connect2ICProvider,
 } from "@connect2ic/vue"
@@ -23,7 +24,7 @@ interface FormState {
   tokenIndex: string
   memo: string
 }
-
+const [assets, { loading, error, refetch }] = useBalance()
 const { isConnected, connect, activeProvider, provider, principal } =
   useConnect()
 const [walletProvider] = useWallet()
@@ -43,6 +44,7 @@ const formState = reactive<FormState>({
   tokenIndex: "",
   memo: "",
 })
+console.log("assets", assets)
 
 // onMounted(() => {
 //   console.log('onMounted')
@@ -134,6 +136,14 @@ const transferNFT = async (values: { [key: string]: string }) => {
           >queryBalance</a-button
         >
         <p :style="{ marginTop: 10 }">Balance: {{ data.balance }}</p>
+        <p v-for="token in assets">
+          {{ token.amount }}
+          {{ token.symbol }}
+        </p>
+        <p>
+          ICP:
+          {{ assets?.find((o) => o.symbol === "ICP").amount }}
+        </p>
       </a-col>
       <a-col :xs="{ span: 24 }" :md="{ span: 12 }">
         <a-form>
