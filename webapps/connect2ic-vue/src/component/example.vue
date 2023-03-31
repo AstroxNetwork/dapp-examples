@@ -45,6 +45,7 @@ const formState = reactive<FormState>({
   memo: "",
 })
 console.log("assets", assets)
+console.log("process=========", process)
 
 // onMounted(() => {
 //   console.log('onMounted')
@@ -94,10 +95,10 @@ const transferToken = async () => {
   data.loading = true
   const reuslt = await activeProvider.value.requestTransfer({
     to: formState.to,
-    standard: formState.standard,
-    symbol: formState.symbol,
     amount: Number(formState.amount),
-    memo: BigInt(formState.memo),
+    // standard: formState.standard,
+    // symbol: formState.symbol,
+    // memo: BigInt(formState.memo),
   })
   console.log("transfer    end", reuslt)
   data.loading = false

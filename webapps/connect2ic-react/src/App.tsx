@@ -340,15 +340,18 @@ const client = createClient({
     }) :
       new AstroX({
         // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-        providerUrl: "http://localhost:8080/",
+        // providerUrl: "https://63k2f-nyaaa-aaaah-aakla-cai.raw.ic0.app/",
+        providerUrl: "http://localhost:3000",
         delegationModes: ["global"],
+        customDomain: 'http://localhost:3008'
       }),
     //  new PlugWallet(),
     //  new InternetIdentity()
 
   ],
   globalProviderConfig: {
-    // host: 'http://localhost:3000',
+    // appId:'kokoko',
+    // host: 'http://localhost:3001',
     // dev: import.meta.env.DEV,
     dev: true,
     // ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
@@ -356,6 +359,7 @@ const client = createClient({
     // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],
     // delegationModes:['global'],
     whitelist: ['qhbym-qaaaa-aaaaa-aaafq-cai'],
+    
   },
 })
 

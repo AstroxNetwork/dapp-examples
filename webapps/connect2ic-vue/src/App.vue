@@ -8,6 +8,7 @@ import { createClient } from "@connect2ic/core"
 import {
   AstroX,
   defaultProviders,
+  InternetIdentity,
   ICX,
   PlugWallet,
 } from "@connect2ic/core/providers"
@@ -26,14 +27,16 @@ const client = createClient({
           // providerUrl: "http://localhost:8080/",
         })
       : new AstroX({
-          providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
-          // providerUrl: "http://localhost:3000/",
+          providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app",
+          // providerUrl: "https://63k2f-nyaaa-aaaah-aakla-cai.raw.ic0.app/",
+          // providerUrl: "http://localhost:3000",
           // delegationModes: ["global"],
         }),
     new PlugWallet(),
+    new InternetIdentity(),
   ],
   globalProviderConfig: {
-    dev: true,
+    // dev: true,
   },
 })
 </script>

@@ -14,10 +14,11 @@ export default defineConfig({
     fs: {
       allow: ["."],
     },
+    port: 3333,
     proxy: {
       // This proxies all http requests made to /api to our running dfx instance
       "/api": {
-        target: `http://0.0.0.0:8000`,
+        target: `http://0.0.0.0:8080`,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "/api"),
       },
