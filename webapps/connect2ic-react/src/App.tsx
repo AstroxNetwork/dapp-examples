@@ -337,6 +337,8 @@ const client = createClient({
     (window as any).icx ? new ICX({
       // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
       // providerUrl: "http://localhost:8080/",
+      delegationModes: ["global"],
+      customDomain: 'http://localhost:3008'
     }) :
       new AstroX({
         // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
