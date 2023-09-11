@@ -338,14 +338,14 @@ const client = createClient({
       // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
       // providerUrl: "http://localhost:8080/",
       delegationModes: ["global"],
-      customDomain: 'http://localhost:3008'
+      // customDomain: 'http://localhost:3008'
     }) :
       new AstroX({
         // providerUrl: "https://ccmhe-vqaaa-aaaai-acmoq-cai.raw.ic0.app/",
         // providerUrl: "https://63k2f-nyaaa-aaaah-aakla-cai.raw.ic0.app/",
         providerUrl: "http://localhost:3000",
-        delegationModes: ["global"],
-        customDomain: 'http://localhost:3008'
+        delegationModes: ["global", "domain"],
+        // customDomain: 'http://localhost:3008'
       }),
     //  new PlugWallet(),
     //  new InternetIdentity()
@@ -355,7 +355,7 @@ const client = createClient({
     // appId:'kokoko',
     // host: 'http://localhost:3001',
     // dev: import.meta.env.DEV,
-    dev: true,
+    // dev: true,
     // ledgerCanisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
     // ledgerHost: "http://localhost:8000",
     // whitelist: ["ryjl3-tyaaa-aaaaa-aaaba-cai"],

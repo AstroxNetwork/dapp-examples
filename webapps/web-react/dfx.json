@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "assets": {
+      "frontend": {
+        "entrypoint": "./dist/index.html"
+      },
+      "source": [
+        "./dist"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "0.0.0.0:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
